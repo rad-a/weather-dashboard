@@ -97,22 +97,22 @@ $(iconEl).append(weatherIcon);
 
 
   //AJAX request to retrieve 5-day weather forecast
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
+  // $.ajax({
+  //   url: queryURL,
+  //   method: "GET"
+  // }).then(function(response) {
 
-  })
+  // })
 
 
   //AJAX request to retrieve UV data
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then (function(response) {
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET"
+//   }).then (function(response) {
 
-  })
-}
+//   })
+// }
 
 //Array to display recent city searches
 let cities = [];
