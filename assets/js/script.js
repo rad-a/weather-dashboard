@@ -18,7 +18,7 @@ $(document).ready(function () {
  
       //URL pattern to query the database
       let queryURL =
-        "http://api.openweathermap.org/data/2.5/weather?q=" +
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
         
         cityName +
         "&appid=" +
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
         //UV Index API URL pattern
         let uvQueryURL =
-          "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=" +
+          "https://api.openweathermap.org/data/2.5/uvi/forecast?appid=" +
           APIKey +
           "&lat=" +
           lat +
@@ -112,7 +112,7 @@ $(document).ready(function () {
     
 
     let forecastURL =
-    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
     cityName +
     "&appid=" +
     APIKey;
