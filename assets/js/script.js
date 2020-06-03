@@ -66,6 +66,8 @@ $(document).ready(function () {
         let iconURL = "https://openweathermap.org/img/wn/";
         let weatherIcon =
           iconURL + response.list[i + 1].weather[0].icon + ".png";
+        let futureDescEl = $("<h6>");
+        let futureDesc = response.list[i + 1].weather[0].description;
         let futureTempEl = $("<h6>");
         let futureTemp = Math.ceil(
           (response.list[i + 1].main.temp - 273.15) * 1.8 + 32
@@ -76,16 +78,17 @@ $(document).ready(function () {
 
         $(futureDateEl).html(monthF + "/" + dateF);
         $(futureIcon).attr({ src: weatherIcon, class: "future-weather-icon" });
+        $(futureDescEl).html(futureDesc);
         $(futureTempEl).html("Temp: " + futureTemp + " &#8457;");
         $(futureHumEl).html("Humidity: " + futureHum);
 
         $(forecastDivs[i]).append(
           futureDateEl,
           futureIcon,
+          futureDescEl,
           futureTempEl,
           futureHumEl
         );
-
       }
 
       let lat = response.city.coord.lat;
@@ -99,6 +102,7 @@ $(document).ready(function () {
         lat +
         "&lon=" +
         lon;
+
       //AJAX request to retrieve UV index data
       $.ajax({
         url: uvQueryURL,
@@ -129,10 +133,12 @@ $(document).ready(function () {
     });
   }
 
+  //Converts meters per second to miles per hour
   function mps2mph(MPS) {
     return Math.floor(MPS * 2.236936);
   }
 
+  //Converts Kelvin to Fahrenheit
   function k2f(K) {
     return Math.floor((K - 273.15) * 1.8 + 32);
   }
@@ -149,13 +155,12 @@ $(document).ready(function () {
     let recentCities = cities;
 
     for (let i = 0; i < recentCities.length; i++) {
-      //Dynamically generate a list item for each new city
       let c = $("<li>");
       c.addClass("list-group-item prev-search");
       c.attr("city-name", recentCities[i]);
       c.text(recentCities[i].toUpperCase());
 
-      //Add searched city to the top of the recent searches list
+      //Prepends search input to search history list
       $(citiesDisplayEl).prepend(c);
     }
   }
@@ -169,7 +174,7 @@ $(document).ready(function () {
     let city = $(inputEl).val().trim();
     console.log(city);
     if (city !== "") {
-      //Add city from the text box to the list of cities (sans duplicates)
+      //Omits adding duplicate searches to search history
       if (cities.indexOf(city) === -1) {
         cities.push(city);
 
@@ -178,7 +183,7 @@ $(document).ready(function () {
         //call renderList function to display array of searched cities
         renderSearchHistory();
       }
-      //API call goes here
+
       getWeatherInfo(city);
     }
   });
