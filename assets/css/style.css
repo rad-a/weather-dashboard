@@ -10,25 +10,35 @@ body {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1;
+  font-family: "Tenali Ramakrishna", sans-serif;
+  font-size: 18px;
+  overflow-y: scroll;
 }
 
 .container-fluid {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: azure;
-  height: 100%;
-  padding: 2rem;
+  background-color: rgb(0, 28, 36);
+  overflow-y: scroll;
+  padding: 0 0 1rem 0;
   align-items: center;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: row;
+.header {
+  /* background-color: blue; */
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  color: rgb(224, 235, 248);
+  box-shadow: 1px 3px 2px #0e555a;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+main {
   height: 100%;
-  width: 90%;
+  width: 95%;
 }
 
 .weather-details {
@@ -36,18 +46,34 @@ body {
   flex-direction: column;
   flex: 3;
   margin-left: 1rem;
-  background-color: cadetblue;
 }
 
 .details-section {
-  border: 1px #333333 solid;
+  border: 1px rgb(0, 62, 72) solid;
   border-radius: 0.5rem;
-  background-color: darkgoldenrod;
-  padding: 1rem;
+  background-color: rgb(0, 85, 102);
+  padding: 1.5rem;
   margin: 1rem;
-  height: 50%;
   display: flex;
   flex-direction: column;
+  color: rgb(248, 248, 248);
+  font-weight: 500;
+  justify-content: space-evenly;
+}
+
+#current-weather {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.uv-button {
+  padding: 0 0.1rem;
+  font-weight: 700;
+}
+
+.uv-button:hover {
+  cursor: default;
 }
 
 .uv-index-extreme {
@@ -55,64 +81,55 @@ body {
 }
 
 .uv-index-v-high {
-  background-color: #df5721;
+  background-color: #d47e2c;
 }
 
 .uv-index-high {
-  background-color: #dfac21;
+  background-color: #daa923;
 }
 
-#uv-index-moderate {
-  background-color: #399b10;
+.uv-index-moderate {
+  background-color: #c6ce5f;
+}
+
+.uv-index-low {
+  background-color: rgb(34, 134, 39);
+}
+
+#forecast-container {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+}
+
+.future-weather-icon {
+  align-self: center;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  flex: 1;
   padding: 1rem;
-  margin-right: 1rem;
-  background-color: darkcyan;
+
+  background-color: rgb(0, 28, 36);
+  border-radius: 0.5rem;
+  color: rgb(248, 248, 248);
+  font-weight: 700;
 }
 
 .prev-search {
-  background-color: #889988;
-  color: orange;
+  background-color: rgb(248, 248, 248);
+  color: rgb(0, 28, 36);
 }
 
 .prev-search:hover {
   cursor: pointer;
-}
-
-#current-weather {
-  display: flex;
-  flex-direction: column;
-}
-
-#forecast {
-  display: flex;
-  flex-direction: row;
-}
-
-.daily-weather {
-  background-color: darkslateblue;
-  border: 1px solid #333333;
-  border-radius: 0.5rem;
-  padding: 1rem;
-}
-
-@media (max-width: 600px) {
-  .wrapper {
-    flex-direction: column;
-  }
-
-  .weather-details {
-    margin-right: 0;
-    margin-bottom: 60px;
-    margin: 0;
-  }
-
-  .sidebar {
-    margin: 0;
-  }
 }
