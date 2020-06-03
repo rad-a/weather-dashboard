@@ -1,6 +1,6 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-This application allows the user to view current weather conditions as well as the 5-day forecast for any city. 
+This application allows the user to view current weather conditions as well as the 5-day forecast for any city. The live application can be found [here](https://rad-a.github.io/weather-dashboard/).
 
 ## User Story
 
@@ -32,3 +32,7 @@ THEN I am presented with the last searched city forecast
 * HTML
 * CSS
 * JQuery
+* Moment.js
+
+## Application UI
+![Weather Dashboard UI](./assets/img/weather-dashboard-UI.jpg)
